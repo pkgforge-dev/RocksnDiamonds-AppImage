@@ -6,21 +6,15 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-# pacman -Syu --noconfirm PACKAGESHERE
+pacman -Syu --noconfirm rocksndiamonds-contrib
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
-get-debloated-pkgs --add-common --prefer-nano
+get-debloated-pkgs --add-common --prefer-nano libdecor-mini
 
-# Comment this out if you need an AUR package
-#make-aur-package PACKAGENAME
-
-# If the application needs to be manually built that has to be done down here
-
-# if you also have to make nightly releases check for DEVEL_RELEASE = 1
-#
-# if [ "${DEVEL_RELEASE-}" = 1 ]; then
-# 	nightly build steps
-# else
-# 	regular build steps
-# fi
+if [ "${ARCH}" = x86_64 ]; then
+    pacman -S --noconfirm rocksndiamonds
+else
+    make-aur-package --archlinux-pkg rocksndiamonds-data 
+    make-aur-package --archlinux-pkg rocksndiamonds
+fi

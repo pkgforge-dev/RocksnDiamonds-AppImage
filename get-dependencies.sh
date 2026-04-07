@@ -21,5 +21,5 @@ get-debloated-pkgs --add-common --prefer-nano
 if [ "${ARCH}" = x86_64 ]; then
     pacman -S --noconfirm rocksndiamonds
 else
-    pacman -S --noconfirm rocksndiamonds --archlinux-pkg
+    make-aur-package rocksndiamonds --archlinux-pkg
 fi

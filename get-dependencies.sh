@@ -8,7 +8,6 @@ echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm    \
     libdecor               \
-    libxmp                 \
     rocksndiamonds-contrib
 
 echo "Installing debloated packages..."

@@ -6,13 +6,11 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-pacman -Syu --noconfirm    \
-    libdecor               \
-    rocksndiamonds-contrib
+pacman -Syu --noconfirm rocksndiamonds-contrib
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
-get-debloated-pkgs --add-common --prefer-nano
+get-debloated-pkgs --add-common --prefer-nano libdecor-mini
 
 if [ "${ARCH}" = x86_64 ]; then
     pacman -S --noconfirm rocksndiamonds
